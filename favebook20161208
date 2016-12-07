@@ -1,0 +1,62 @@
+class test{
+	public static void main(String args[]){
+		int x = Integer.parseInt(args[0]);
+		int flag = 0;
+		boolean bol = false;
+		while(flag!= -1){
+			//(1)
+			for(int i = 1;i<=x;i++){
+				if(x-i>=flag){
+					System.out.print(i);
+				} else {
+					System.out.print(" ");
+				}
+			}
+			for(int i = 1;i<=x;i++){
+				System.out.print("△");
+			}
+			for(int i = 1;i<=x;i++){
+				if(x-i>flag){
+					System.out.print(" ");
+				} else {
+					System.out.print("*");
+				}
+			}
+			System.out.print("         ");
+			//(2)
+			for(int i = 1; i<=x*2;i++){
+				if(i<=flag || i > (2*x)-flag){
+					System.out.print(" ");
+				}else{
+					System.out.print(x-flag);
+				}
+			}
+			System.out.print("         ");
+			//(3)
+			boolean bol2 = false;
+			for(int i = 1; i< x*2;i++){
+				if(i>x+flag || i < x-flag){
+					System.out.print(" ");
+				} else {
+					if(bol2==false){
+						System.out.print(flag+1);
+						bol2=true;
+					} else {
+						System.out.print("△");
+						bol2=false;
+					}
+				}
+			}
+			System.out.println();
+			if(flag == x-1){
+				bol = true;
+			}
+			if(bol == false){
+				flag++;
+			} else {
+				flag--;
+			}
+
+		}
+	}
+}
